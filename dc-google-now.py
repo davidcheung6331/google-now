@@ -5,7 +5,6 @@ from langchain.chains import ConversationChain
 from langchain.agents import load_tools
 from langchain.agents import initialize_agent
 from PIL import Image
-image = Image.open("search2.jpg")
 
 
 
@@ -22,6 +21,8 @@ st.set_page_config(
     }
 )
 
+image = Image.open("search2.jpg")
+st.image(image, caption='created by MJ')
 
 st.title(":globe_with_meridians:  " + page_title)
 
