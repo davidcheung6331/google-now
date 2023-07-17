@@ -14,11 +14,6 @@ st.set_page_config(
     page_icon="🤖",
     layout="wide",
     initial_sidebar_state="expanded",
-    menu_items={
-        'Get Help': 'https://www.extremelycoolapp.com/help',
-        'Report a bug': "https://www.extremelycoolapp.com/bug",
-        'About': "Demo Page by AdCreativeDEv"
-    }
 )
 
 image = Image.open("search2.jpg")
@@ -57,11 +52,15 @@ tools = load_tools(["serpapi", "llm-math"], llm=llm)
 agent = initialize_agent(tools, llm, agent="zero-shot-react-description", verbose=True)
 
 
-SearchStr = "what is the today biggest news from 10  years ago ?"
+SearchStr = "Please explain what is Machine Learning in detail . and suggest at least 3 website with url to start my learning with sample dataset "
 
+with st.expander("Sample"):
+    image = Image.open("google-search-sample.png")
+    st.image(image, caption='Sample Search')
+    
 
 # Display the updated value of SearchStr in the text_input control
-SearchStr = st.text_input(":point_right:", value=SearchStr)
+SearchStr = st.text_input(":point_right: Enter your Question :", value=SearchStr)
 
 
 if st.button("Search"):
