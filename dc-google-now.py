@@ -65,8 +65,12 @@ SearchStr = st.text_input(":point_right:", value=SearchStr)
 
 
 if st.button("Search"):
-    SearchResult = agent.run(SearchStr)
-    st.info(SearchResult)
+    with st.spinner('Generating ...'):
+        st.write('✔️ Langchain Start with Google Search Tool by SERPAPI')
+        SearchResult = agent.run(SearchStr)
+        st.write('✔️ Langchain Action Completed')
+        st.subheader('Search Results:')
+        st.info(SearchResult)
 
 
 log = """
@@ -92,14 +96,6 @@ log = """
  Final Answer: The FBI arrests 10 Russian spies caught living deep undercover in the United States.
 
 > Finished chain.
-
-
-######
-
-agent = initialize_agent(tools, llm, agent="zero-shot-react-description", verbose=True)
-SearchResult = agent.run(recorded_text)
-
-
 
 """
 
